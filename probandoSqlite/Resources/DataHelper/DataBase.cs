@@ -23,7 +23,7 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db"))) {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db"))) {
 
                     connection.CreateTable<Model.Person>();
                     return true;
@@ -42,7 +42,7 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db")))
                 {
 
                     connection.Insert(person);
@@ -62,7 +62,7 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db")))
                 {
 
                     return connection.Table<Person>().ToList();
@@ -82,10 +82,11 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db")))
                 {
 
-                    connection.Query<Person>("UPDATE Person set Name=?,Age=?,Email=? Where Id=?",person.Name,person.Age,person.Email,person.Id);
+                    //connection.Query<Person>("UPDATE Person set Name=?,Age=?,Email=? Where Id=?",person.Name,person.Age,person.Email,person.Id);
+                    connection.Query<Person>("UPDATE Person set Name=?,Age=?,Email=? Where Id=?", person.Name, person.Id);
                     return true;
                 }
             }
@@ -102,7 +103,7 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db")))
                 {
                     //var pr = connection.Table<Person>().First(x => x.Id == person.Id);
                     connection.Delete(person);
@@ -122,7 +123,7 @@ namespace probandoSqlite.Resources.DataHelper
 
             try
             {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "CosasLista2.db")))
                 {
 
                     connection.Query<Person>("SELECT * FROM Person Where Id=?", Id);

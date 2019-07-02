@@ -31,11 +31,11 @@ namespace probandoSqlite
             lstData = FindViewById<ListView>(Resource.Id.listView);
 
             var edtName = FindViewById<EditText>(Resource.Id.edtName);
-            var edtAge = FindViewById<EditText>(Resource.Id.edtAge);
-            var edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
+            //var edtAge = FindViewById<EditText>(Resource.Id.edtAge);
+            //var edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
 
             var btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
-            var btnEdit = FindViewById<Button>(Resource.Id.btnEdit);
+            //var btnEdit = FindViewById<Button>(Resource.Id.btnEdit);
             var btnDelete = FindViewById<Button>(Resource.Id.btnDelete);
             
             //LoadData
@@ -46,37 +46,39 @@ namespace probandoSqlite
             {
                 Person person = new Person()
                 {
-                    Name = edtName.Text,
-                    Age = int.Parse(edtAge.Text),
-                    Email = edtEmail.Text
+                    //Id = int.Parse(edtName.Tag.ToString()),
+                    Name = edtName.Text
+                    //Age = int.Parse(edtAge.Text),
+                    //Email = edtEmail.Text
                 };
 
                 db.InsertIntoTablePerson(person);
                 LoadData();
             };
 
-            btnEdit.Click += delegate
+            /*btnEdit.Click += delegate
             {
                 Person person = new Person()
                 {
                     Id = int.Parse(edtName.Tag.ToString()),
-                    Name = edtName.Text,
-                    Age = int.Parse(edtAge.Text),
-                    Email = edtEmail.Text
+                    Name = edtName.Text
+                    //Age = int.Parse(edtAge.Text),
+                    //Email = edtEmail.Text
                 };
 
                 db.updateTablePerson(person);
                 LoadData();
             };
+            */
 
             btnDelete.Click += delegate
             {
                 Person person = new Person()
                 {
                     Id = int.Parse(edtName.Tag.ToString()),
-                    Name = edtName.Text,
-                    Age = int.Parse(edtAge.Text),
-                    Email = edtEmail.Text
+                    Name = edtName.Text
+                    //Age = int.Parse(edtAge.Text),
+                    //Email = edtEmail.Text
                 };
 
                 db.deleteTablePerson(person);
@@ -97,14 +99,14 @@ namespace probandoSqlite
                 }
 
                 var txtName = e.View.FindViewById<TextView>(Resource.Id.textView1);
-                var txtAge = e.View.FindViewById<TextView>(Resource.Id.textView2);
-                var txtEmail = e.View.FindViewById<TextView>(Resource.Id.textView3);
+                //var txtAge = e.View.FindViewById<TextView>(Resource.Id.textView2);
+                //var txtEmail = e.View.FindViewById<TextView>(Resource.Id.textView3);
 
                 edtName.Text = txtName.Text;
                 edtName.Tag = e.Id;
-                edtAge.Text = txtName.Text;
+                //edtAge.Text = txtName.Text;
 
-                edtEmail.Text = txtEmail.Text;
+                //edtEmail.Text = txtEmail.Text;
 
             };
         }

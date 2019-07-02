@@ -17,8 +17,8 @@ namespace probandoSqlite.Resources
     public class ViewHolder : Java.Lang.Object
     {
         public TextView txtName{ get; set; }
-        public TextView txtAge { get; set; }
-        public TextView txtEmail { get; set; }
+        //public TextView txtAge { get; set; }
+        //public TextView txtEmail { get; set; }
 
     }
 
@@ -57,12 +57,12 @@ namespace probandoSqlite.Resources
             var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.list_view_dataTemplate, parent, false);
 
             var txtName = view.FindViewById<TextView>(Resource.Id.textView1);
-            var txtAge = view.FindViewById<TextView>(Resource.Id.textView2);
-            var txtEmail = view.FindViewById<TextView>(Resource.Id.textView3);
+            //var txtAge = view.FindViewById<TextView>(Resource.Id.textView2);
+            //var txtEmail = view.FindViewById<TextView>(Resource.Id.textView3);
 
             txtName.Text = lstPerson[position].Name;
-            txtAge.Text = ""+lstPerson[position].Age;
-            txtEmail.Text = lstPerson[position].Email;
+            //txtAge.Text = ""+lstPerson[position].Age;
+            //txtEmail.Text = lstPerson[position].Email;
 
             return view;
 
